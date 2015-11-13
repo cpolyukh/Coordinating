@@ -1,10 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign up</title>
+    </head>
 
-</body>
+    <body>
+        <h1>Sign Up</h1>
+        <h2>Our service is fun and awesome, but you must be 13 years old to join.</h2>
+
+        <form name="signupForm" novalidate>
+            <div class="form-group">
+                <label for="emailInp">Email</label>
+                <input type="text" class="form-control" id="emailInp"
+                       name="emailInp" ng-model="userInfo.email" required/>
+                <p class="validation-error"
+                   ng-if="signupForm.emailInp.$error.required">Email is required</p>
+            </div>
+            <div class="form-group">
+                <label for="firstNameInp">First Name</label>
+                <input type="text" class="form-control" id="firstNameInp"
+                       name="firstNameInp" ng-model="userInfo.firstName" />
+            </div>
+            <div class="form-group">
+                <label for="lastNameInp">Last Name</label>
+                <input type="text" class="form-control" id="lastNameInp"
+                       name="lastNameInp" ng-model="userInfo.lastName" required/>
+                <p class="validation-error"
+                   ng-if="signupForm.lastNameInp.$error.required">Last name is required</p>
+            </div>
+            <div class="form-group">
+                <label for="birthdateInp">Birthdate</label>
+                <input type="text" class="form-control" id="birthdateInp"
+                       name="birthdateInp" ng-model="userInfo.birthdate" required/>
+                <p class="validation-error"
+                   ng-if="signupForm.birthdateInp.$error.required">Birthdate is required</p>
+            </div>
+            <div class="form-group">
+                <label for="passwordInp">Password</label>
+                <input type="password" class="form-control" id="passwordInp"
+                       name="passwordInp" ng-model="userInfo.password" required/>
+                <p class="validation-error"
+                   ng-if="signupForm.passwordInp.$error.required">Password is required</p>
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirmInp">Confirm Password</label>
+                <input type="password" class="form-control" id="passwordConfirmInp"
+                       name="passwordConfirmInp" ng-model="userInfo.passwordConfirm" required/>
+                <p class="validation-error"
+                   ng-if="signupForm.passwordConfirmInp.$error.required">You must confirm your password</p>
+            </div>
+
+            <div class="form-group">
+                <button type="reset" class="btn btn-default">Reset</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default"
+                        ng-disabled="!isValid(signupForm)">Sign Me Up!</button>
+            </div>
+        </form>
+    </body>
 </html>
