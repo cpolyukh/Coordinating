@@ -2,10 +2,37 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- angular script file -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+        <!--add the lodash library to our page-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
+        <!-- our script file -->
+        <script src="js/app.js"></script>
+
+        <!--angular ui-router module-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+        <!--angular uuid module (for unique ids)-->
+        <script src="lib/angular-uuid.js"></script>
+
+        <!--angular local storage module (for local storage)-->
+        <script src="lib/angular-local-storage.min.js"></script>
+
+        <!-- Firebase API script -->
+        <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+        <!-- AngularFire module -->
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
         <title>Sign up</title>
     </head>
 
-    <body>
+    <body class="container" ng-app="Signup" ng-controller="SignupController">
         <h1>Sign Up</h1>
         <h2>Our service is fun and awesome, but you must be 13 years old to join.</h2>
 
@@ -51,13 +78,9 @@
                    ng-if="signupForm.passwordConfirmInp.$error.required">You must confirm your password</p>
             </div>
 
-            <div class="form-group">
-                <button type="reset" class="btn btn-default">Reset</button>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-default"
-                        ng-disabled="!isValid(signupForm)">Sign Me Up!</button>
-            </div>
+            <a class="btn btn-primary" id="reset-button">Reset</a>
+            <a class="btn btn-primary" id="submit-button" ng-disabled="contactForm.$invalid">Sign Me Up!</a>
+
         </form>
     </body>
 </html>
