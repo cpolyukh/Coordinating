@@ -1,0 +1,29 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+
+body {
+    font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+    background-color: #e5f2ff;
+    margin: 2em;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+#reset-button {
+    background-color: #ff6666;
+    border-color: #ff6666;
+ }
+
+.validation-error {
+    color: #DD0000;
+    font-size: 0.8em;
+}
+
+form .ng-dirty.ng-invalid {
+    border: 1px solid #DD0000;
+}
