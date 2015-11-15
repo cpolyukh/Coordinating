@@ -18,7 +18,7 @@
         <h1>Sign Up</h1>
         <h2>Our service is fun and awesome, but you must be 13 years old to join.</h2>
 
-        <p ng-show="signedUp" class="alert alert-success signed-up">Congratulations, you've signed up!</p>
+        <p ng-if="signedUp" class="alert alert-success signed-up">Congratulations, you've signed up!</p>
 
         <form name="signupForm" novalidate>
             <div class="form-group">
