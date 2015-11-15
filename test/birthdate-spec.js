@@ -4,7 +4,7 @@
 
 /* Test script for the birthdate field */
 describe('birthdate field', function() {
-    var birthdateInp = element(by.model('userInfo.birthdate'));
+    var birthdateInp = element(by.model('birthdate'));
     var requiredBirthdate = $('.birthdate-required-error');
     var validDate = $('.valid-date-error');
     var oldEnough = $('.in-the-past-error');
