@@ -37,7 +37,35 @@ angular.module('Signup', [])
         };
     })
 
+    .directive('match', function() {
+        return {
+            require: 'ngModel',
+            link: function(scope, elem, attrs, controller) {
+                controller.$validators.match = function(modelValue) {
+                    if (!modelValue) {
+                        return true;
+                    }
+                    return modelValue === scope.password;
+                }
+            }
+        };
+    })
+
 
     .controller('SignupController', function($scope) {
+
+        $scope.submitForm = function() {
+            if ($scope.signupForm.$valid) {
+                $scope.signedUp = true;
+
+                // clear all fields
+                $scope.email = null;
+                $scope.firstName = null;
+                $scope.lastName = null;
+                $scope.birthdate = null;
+                $scope.password = null;
+                $scope.passwordConfirm = null;
+            }
+        };
 
     });

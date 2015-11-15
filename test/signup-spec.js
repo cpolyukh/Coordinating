@@ -3,12 +3,12 @@
  */
 /* Test script for the Signup app */
 describe('signup app', function() {
-    var emailInp = element(by.model('signupForm.emailInp'));
-    var firstNameInp = element(by.model('signupForm.firstName'));
-    var lastNameInp = element(by.model('signupForm.lastName'));
-    var birthdateInp = element(by.model('signupForm.birthdateInp'));
-    var passwordInp = element(by.model('signupForm.passwordInp'));
-    var passwordConfirmInp = element(by.model('signupForm.passwordConfirmInp'));
+    var emailInp = element(by.model('emailInp'));
+    var firstNameInp = element(by.model('firstName'));
+    var lastNameInp = element(by.model('lastName'));
+    var birthdateInp = element(by.model('birthdateInp'));
+    var passwordInp = element(by.model('passwordInp'));
+    var passwordConfirmInp = element(by.model('passwordConfirmInp'));
 
     var submitBtn = element(by.id('submit-button'));
 

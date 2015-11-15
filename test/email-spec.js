@@ -4,7 +4,7 @@
 
 /* Test script for the email field */
 describe('email field', function() {
-    var emailInp = element(by.model('userInfo.email'));
+    var emailInp = element(by.model('email'));
     var requiredEmail = $('.email-required-error');
     var validEmail = $('.email-invalid-error');
     var signupBtn = element(by.id('submit-button'));

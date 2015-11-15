@@ -8,9 +8,6 @@
         <!-- angular script file -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
-        <!--add the lodash library to our page-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
-
         <!-- our script file -->
         <script src="js/app.js"></script>
 
@@ -21,14 +18,16 @@
         <h1>Sign Up</h1>
         <h2>Our service is fun and awesome, but you must be 13 years old to join.</h2>
 
+        <p ng-show="signedUp" class="alert alert-success signed-up">Congratulations, you've signed up!</p>
+
         <form name="signupForm" novalidate>
             <div class="form-group">
                 <label for="emailInp">Email</label>
-                <input type="email" class="form-control" id="emailInp"
-                       name="emailInp" ng-model="userInfo.email" required/>
+                <input type="email" class="form-control" id="emailInp" placeholder="email address"
+                       name="emailInp" ng-model="email" required/>
 
                 <p class="validation-error email-required-error"
-                   ng-if="signupForm.emailInp.$dirty && signupForm.emailInp.$error.required">
+                   ng-if="signupForm.emailInp.$dirty && signupForm.emailInp.$error.required && !signedUp">
                     Email is required
                 </p>
 
@@ -38,27 +37,27 @@
 
             <div class="form-group">
                 <label for="firstNameInp">First Name</label>
-                <input type="text" class="form-control" id="firstNameInp"
-                       name="firstNameInp" ng-model="userInfo.firstName" />
+                <input type="text" class="form-control" id="firstNameInp" placeholder="your first name"
+                       name="firstNameInp" ng-model="firstName" />
             </div>
 
             <div class="form-group">
                 <label for="lastNameInp">Last Name</label>
-                <input type="text" class="form-control" id="lastNameInp"
-                       name="lastNameInp" ng-model="userInfo.lastName" required/>
+                <input type="text" class="form-control" id="lastNameInp" placeholder="your last name"
+                       name="lastNameInp" ng-model="lastName" required/>
                 <p class="validation-error"
-                   ng-if="signupForm.lastNameInp.$dirty && signupForm.lastNameInp.$error.required">
+                   ng-if="signupForm.lastNameInp.$dirty && signupForm.lastNameInp.$error.required && !signedUp">
                     Last name is required
                 </p>
             </div>
 
             <div class="form-group">
                 <label for="birthdateInp">Birthdate</label>
-                <input type="text" class="form-control" id="birthdateInp"
-                       name="birthdateInp" ng-model="userInfo.birthdate" in-the-past required is-date/>
+                <input type="text" class="form-control" id="birthdateInp" placeholder="your birthdate"
+                       name="birthdateInp" ng-model="birthdate" in-the-past required is-date/>
 
                 <p class="validation-error birthdate-required-error"
-                   ng-if="signupForm.birthdateInp.$dirty && signupForm.birthdateInp.$error.required">
+                   ng-if="signupForm.birthdateInp.$dirty && signupForm.birthdateInp.$error.required && !signedUp">
                     Birthdate is required
                 </p>
 
@@ -77,9 +76,10 @@
             <div class="form-group">
                 <label for="passwordInp">Password</label>
                 <input type="password" class="form-control" id="passwordInp"
-                       name="passwordInp" ng-model="userInfo.password" required/>
-                <p class="validation-error"
-                   ng-if="signupForm.passwordInp.$dirty && signupForm.passwordInp.$error.required">
+                       name="passwordInp" ng-model="password" required/>
+
+                <p class="validation-error password-required-error"
+                   ng-if="signupForm.passwordInp.$dirty && signupForm.passwordInp.$error.required && !signedUp">
                     Password is required
                 </p>
             </div>
@@ -87,15 +87,23 @@
             <div class="form-group">
                 <label for="passwordConfirmInp">Confirm Password</label>
                 <input type="password" class="form-control" id="passwordConfirmInp"
-                       name="passwordConfirmInp" ng-model="userInfo.passwordConfirm" required/>
-                <p class="validation-error"
-                   ng-if="signupForm.passwordConfirmInp.$dirty && signupForm.passwordConfirmInp.$error.required">
+                       name="passwordConfirmInp" ng-model="passwordConfirm" required match/>
+
+                <p class="validation-error confirmation-required-error"
+                   ng-if="signupForm.passwordConfirmInp.$dirty && signupForm.passwordConfirmInp.$error.required && !signedUp">
                     You must confirm your password
+                </p>
+
+                <p class="validation-error match-error"
+                   ng-if="signupForm.passwordConfirmInp.$dirty && signupForm.passwordConfirmInp.$error.match">
+                    Passwords do not match
                 </p>
             </div>
 
-            <a class="btn btn-primary" id="reset-button">Reset</a>
-            <a class="btn btn-primary" id="submit-button" ng-disabled="signupForm.$invalid">Sign Me Up!</a>
+            <a class="btn btn-primary" type="submit" id="submit-button" ng-click="submitForm()"
+               ng-disabled="signupForm.$invalid">
+                Sign Me Up!
+            </a>
 
         </form>
     </body>
