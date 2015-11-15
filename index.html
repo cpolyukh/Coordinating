@@ -39,47 +39,66 @@
         <form name="signupForm" novalidate>
             <div class="form-group">
                 <label for="emailInp">Email</label>
-                <input type="text" class="form-control" id="emailInp"
+                <input type="email" class="form-control" id="emailInp"
                        name="emailInp" ng-model="userInfo.email" required/>
-                <p class="validation-error"
-                   ng-if="signupForm.emailInp.$error.required">Email is required</p>
+
+                <p class="validation-error email-required-error"
+                   ng-if="signupForm.emailInp.$dirty && signupForm.emailInp.$error.required">
+                    Email is required
+                </p>
+
+                <p class="validation-error email-invalid-error"
+                   ng-if="signupForm.emailInp.$error.email">Not a valid email</p>
             </div>
+
             <div class="form-group">
                 <label for="firstNameInp">First Name</label>
                 <input type="text" class="form-control" id="firstNameInp"
                        name="firstNameInp" ng-model="userInfo.firstName" />
             </div>
+
             <div class="form-group">
                 <label for="lastNameInp">Last Name</label>
                 <input type="text" class="form-control" id="lastNameInp"
                        name="lastNameInp" ng-model="userInfo.lastName" required/>
                 <p class="validation-error"
-                   ng-if="signupForm.lastNameInp.$error.required">Last name is required</p>
+                   ng-if="signupForm.lastNameInp.$dirty && signupForm.lastNameInp.$error.required">
+                    Last name is required
+                </p>
             </div>
+
             <div class="form-group">
                 <label for="birthdateInp">Birthdate</label>
                 <input type="text" class="form-control" id="birthdateInp"
                        name="birthdateInp" ng-model="userInfo.birthdate" required/>
                 <p class="validation-error"
-                   ng-if="signupForm.birthdateInp.$error.required">Birthdate is required</p>
+                   ng-if="signupForm.birthdateInp.$dirty && signupForm.birthdateInp.$error.required">
+                    Birthdate is required
+                </p>
             </div>
+
             <div class="form-group">
                 <label for="passwordInp">Password</label>
                 <input type="password" class="form-control" id="passwordInp"
                        name="passwordInp" ng-model="userInfo.password" required/>
                 <p class="validation-error"
-                   ng-if="signupForm.passwordInp.$error.required">Password is required</p>
+                   ng-if="signupForm.passwordInp.$dirty && signupForm.passwordInp.$error.required">
+                    Password is required
+                </p>
             </div>
+
             <div class="form-group">
                 <label for="passwordConfirmInp">Confirm Password</label>
                 <input type="password" class="form-control" id="passwordConfirmInp"
                        name="passwordConfirmInp" ng-model="userInfo.passwordConfirm" required/>
                 <p class="validation-error"
-                   ng-if="signupForm.passwordConfirmInp.$error.required">You must confirm your password</p>
+                   ng-if="signupForm.passwordConfirmInp.$dirty && signupForm.passwordConfirmInp.$error.required">
+                    You must confirm your password
+                </p>
             </div>
 
             <a class="btn btn-primary" id="reset-button">Reset</a>
-            <a class="btn btn-primary" id="submit-button" ng-disabled="contactForm.$invalid">Sign Me Up!</a>
+            <a class="btn btn-primary" id="submit-button" ng-disabled="signupForm.$invalid">Sign Me Up!</a>
 
         </form>
     </body>
