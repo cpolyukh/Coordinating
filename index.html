@@ -45,7 +45,7 @@
                 <label for="lastNameInp">Last Name</label>
                 <input type="text" class="form-control" id="lastNameInp" placeholder="your last name"
                        name="lastNameInp" ng-model="lastName" required/>
-                <p class="validation-error"
+                <p class="validation-error lastname-required-error"
                    ng-if="signupForm.lastNameInp.$dirty && signupForm.lastNameInp.$error.required && !signedUp">
                     Last name is required
                 </p>
