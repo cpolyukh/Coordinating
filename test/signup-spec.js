@@ -28,7 +28,7 @@ describe('signup app', function() {
         emailInp.clear();
         expect(emailError.isPresent()).toEqual(true);
         emailInp.sendKeys('hello@world.com');
-        expect(requiredMsg.isPresent()).toEqual(false);
+        expect(emailError.isPresent()).toEqual(false);
     });
 
     it('must show last name required validation error', function() {
@@ -79,12 +79,12 @@ describe('signup app', function() {
         birthdateInp.sendKeys('1/15/1980');
         passwordInp.sendKeys('2Cool4U');
         passwordConfirmInp.sendKeys('2Cool4U');
-        expect(addTaskBtn.getAttribute('disabled')).toBe(null);
+        expect(submitBtn.getAttribute('disabled')).toBe(null);
         emailInp.clear();
         lastNameInp.clear();
         birthdateInp.clear();
         passwordInp.clear();
         passwordConfirmInp.clear();
-        expect(addTaskBtn.getAttribute('disabled')).toEqual('true');
+        expect(submitBtn.getAttribute('disabled')).toEqual('true');
     });
 });
